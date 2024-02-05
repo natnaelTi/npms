@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "autoname": "field:full_name",
  "creation": "2021-02-09 08:41:03.295772",
  "doctype": "DocType",
@@ -10,17 +11,24 @@
   "last_name",
   "full_name",
   "image",
+  "phone_number",
   "email",
+  "column_break_gymns",
   "contract",
   "occupancy",
   "start_date",
   "expiry_date",
-  "rent_paid",
-  "property",
   "rental_fee",
+  "section_break_yosfo",
+  "rent_paid",
+  "main_property",
+  "property",
+  "column_break_2lfpz",
   "advance_rent",
+  "column_break_qs52s",
   "rent_due",
-  "amended_from"
+  "amended_from",
+  "security_deposit"
  ],
  "fields": [
   {
@@ -56,7 +64,8 @@
    "reqd": 1
   },
   {
-   "default": "1",
+   "default": "0",
+   "depends_on": "Contract.rental_use == \"Residential\"",
    "fieldname": "occupancy",
    "fieldtype": "Int",
    "in_list_view": 1,
@@ -78,17 +87,11 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "rent_paid",
    "fieldtype": "Currency",
    "label": "Rent Paid",
    "reqd": 1
-  },
-  {
-   "fetch_from": "contract.property",
-   "fieldname": "property",
-   "fieldtype": "Data",
-   "label": "Property",
-   "read_only": 1
   },
   {
    "fetch_from": "contract.rental_fee",
@@ -98,13 +101,15 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "advance_rent",
    "fieldtype": "Currency",
    "label": "Advance Rent"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "rent_due",
-   "fieldtype": "Currency",
+   "fieldtype": "Date",
    "label": "Rent Due"
   },
   {
@@ -120,16 +125,59 @@
    "fieldname": "image",
    "fieldtype": "Attach Image",
    "label": "Image"
+  },
+  {
+   "fieldname": "column_break_gymns",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_yosfo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_2lfpz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qs52s",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security Deposit"
+  },
+  {
+   "fetch_from": "contract.property",
+   "fieldname": "property",
+   "fieldtype": "Data",
+   "label": "Rental Premise",
+   "read_only": 1
+  },
+  {
+   "fieldname": "main_property",
+   "fieldtype": "Link",
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-02-12 11:44:58.571130",
+ "modified": "2023-10-20 17:06:19.261522",
  "modified_by": "Administrator",
  "module": "Tenant Manager",
  "name": "Tenant",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -147,5 +195,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

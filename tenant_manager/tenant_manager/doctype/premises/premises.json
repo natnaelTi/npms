@@ -7,16 +7,26 @@
  "engine": "InnoDB",
  "field_order": [
   "address",
+  "property",
+  "status",
+  "column_break_zlnmn",
   "description",
+  "images",
   "state",
-  "status"
+  "section_break_6se5i",
+  "price",
+  "column_break_p59ir",
+  "area"
  ],
  "fields": [
   {
    "fieldname": "address",
    "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
    "in_list_view": 1,
-   "label": "Address",
+   "in_preview": 1,
+   "label": "Address Label",
    "reqd": 1,
    "unique": 1
   },
@@ -24,28 +34,65 @@
    "fieldname": "state",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "State",
-   "reqd": 1
+   "label": "State"
   },
   {
    "default": "Vacant",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Vacant\nOccupied"
+   "options": "Vacant\nOccupied",
+   "reqd": 1
   },
   {
    "fieldname": "description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "images",
+   "fieldtype": "Attach Image",
+   "label": "Images"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price (per square meter)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "label": "Area",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zlnmn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_6se5i",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_p59ir",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-14 12:45:18.471147",
+ "modified": "2023-10-18 13:50:14.610627",
  "modified_by": "Administrator",
  "module": "Tenant Manager",
  "name": "Premises",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -61,7 +108,11 @@
    "write": 1
   }
  ],
+ "search_fields": "address",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
+ "title_field": "address",
  "track_changes": 1
 }

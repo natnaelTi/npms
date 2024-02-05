@@ -1,16 +1,20 @@
 {
  "actions": [],
- "autoname": "field:tenant_name",
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "hash",
  "creation": "2021-02-09 07:50:44.917697",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "tenant_name",
+  "main_property",
   "property",
   "rental_fee",
   "term",
   "start_date",
+  "rental_use",
   "status",
   "expiry_date",
   "utilities_column",
@@ -29,11 +33,12 @@
    "reqd": 1
   },
   {
+   "allow_on_submit": 1,
    "fetch_from": "premises.address",
    "fieldname": "property",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Property",
+   "label": "Rental Premise",
    "options": "Premises",
    "reqd": 1
   },
@@ -102,20 +107,42 @@
    "read_only": 1
   },
   {
+   "fetch_from": "property.price",
+   "fetch_if_empty": 1,
    "fieldname": "rental_fee",
    "fieldtype": "Currency",
    "label": "Rental Fee",
    "options": "NGN ",
    "reqd": 1
+  },
+  {
+   "fieldname": "rental_use",
+   "fieldtype": "Select",
+   "label": "Rental Use",
+   "options": "Residential\nCommercial",
+   "reqd": 1
+  },
+  {
+   "fieldname": "main_property",
+   "fieldtype": "Link",
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2021-02-09 17:20:57.097750",
+ "links": [
+  {
+   "link_doctype": "Premises",
+   "link_fieldname": "price"
+  }
+ ],
+ "modified": "2023-10-18 10:57:20.601395",
  "modified_by": "Administrator",
  "module": "Tenant Manager",
  "name": "Contract",
+ "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [
   {
@@ -131,7 +158,11 @@
    "write": 1
   }
  ],
+ "search_fields": "tenant_name",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
+ "title_field": "tenant_name",
  "track_changes": 1
 }
